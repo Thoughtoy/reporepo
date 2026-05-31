@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+
+  <link rel="stylesheet" href="../student-css/home.css">
+  <link rel="stylesheet" href="../student-components/mobile-nav.css">
+
+  <title>LeafLET Home</title>
+</head>
+
+<body>
+
+  <main class="app-shell">
+
+    <div class="top-bar">
+      <div class="brand">
+        <img
+          src="../assets/images/LOGO.png"
+          alt="LeafLET Logo"
+        >
+        <div>
+          <h1>LeafLET</h1>
+          <span>LET REVIEWER</span>
+        </div>
+      </div>
+
+      <button
+        class="profile-btn"
+        id="profileBtn"
+        type="button"
+      >
+        <span id="profileInitial">?</span>
+      </button>
+    </div>
+
+    <section id="guestHome" class="home-view hidden">
+      <div class="hero-card">
+        <h2>Welcome to LeafLET!</h2>
+        <p>Review smarter, practice offline, and track your LET preparation progress.</p>
+
+        <button id="loginBtn" class="primary-btn" type="button">Login to Continue</button>
+        <button id="registerBtn" class="outline-btn" type="button">Create Account</button>
+      </div>
+
+      <div class="guest-features">
+        <div class="feature-card">
+          <strong>Offline Reviewer</strong>
+          <span>Study even without internet.</span>
+        </div>
+
+        <div class="feature-card">
+          <strong>Mock Quizzes</strong>
+          <span>Practice by subject and category.</span>
+        </div>
+
+        <div class="feature-card">
+          <strong>Progress Tracking</strong>
+          <span>Monitor your scores and attempts.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="loggedHome" class="home-view hidden">
+
+      <section class="welcome">
+        <h2 id="welcomeText">Hello, !</h2>
+        <p>Choose a category and continue your LET review.</p>
+      </section>
+
+      <section class="category-tabs">
+        <button class="tab active" type="button" data-category="general">General Educ.</button>
+        <button class="tab" type="button" data-category="professional">Professional Educ.</button>
+        <button class="tab" type="button" data-category="major">Majors</button>
+      </section>
+
+      <section class="progress-card">
+        <div class="progress-top">
+          <div class="progress-left">
+            <div class="book-icon">
+              <svg viewBox="0 0 24 24" class="card-icon">
+                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20"></path>
+                <path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 0 4 23"></path>
+                <path d="M4 5.5V21"></path>
+              </svg>
+            </div>
+
+            <div>
+              <h3 id="categoryTitle">General Education</h3>
+              <p id="questionCount">0 Overall Questions</p>
+              <p id="lastAttempt">Last Attempted: Not yet</p>
+            </div>
+          </div>
+
+          <div class="score" id="scoreText">0/0</div>
+        </div>
+
+        <div class="progress-line">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="progress-labels">
+          <span>0%</span>
+          <span>50%</span>
+          <span>100%</span>
+        </div>
+      </section>
+
+      <section class="study-modes">
+        <h3 class="section-title">Study Modes</h3>
+
+        <div class="study-grid">
+
+          <button class="study-card active" type="button" data-route="flashcards">
+            <div class="study-icon">
+              <svg viewBox="0 0 24 24" class="green-icon">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M7 9h10"></path>
+                <path d="M7 13h6"></path>
+              </svg>
+            </div>
+
+            <strong>Flashcards</strong>
+            <small>Review terms and concepts.</small>
+          </button>
+
+          <button class="study-card" type="button" data-route="quiz">
+            <div class="study-icon">
+              <svg viewBox="0 0 24 24" class="green-icon">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+            </div>
+
+            <strong>Mock Quiz</strong>
+            <small>Answer practice questions.</small>
+          </button>
+
+          <button class="study-card" type="button" data-route="exam">
+            <div class="study-icon">
+              <svg viewBox="0 0 24 24" class="green-icon">
+                <circle cx="12" cy="13" r="8"></circle>
+                <path d="M12 9v4l2 2"></path>
+                <path d="M9 2h6"></path>
+              </svg>
+            </div>
+
+            <strong>Mock Exam</strong>
+            <small>Simulate LET exam flow.</small>
+          </button>
+
+          <button class="study-card" type="button" data-route="learn">
+            <div class="study-icon">
+              <svg viewBox="0 0 24 24" class="green-icon">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"></path>
+              </svg>
+            </div>
+
+            <strong>Read & Learn</strong>
+            <small>Study lessons and notes.</small>
+          </button>
+
+        </div>
+      </section>
+
+      <section class="subjects-section">
+        <h3 class="section-title" id="subjectHeader">General Education Subjects</h3>
+        <div class="subjects" id="subjectsList"></div>
+      </section>
+
+    </section>
+
+    <div id="mobile-nav-container"></div>
+
+  </main>
+
+  <script type="module" src="../student-components/mobile-nav.js"></script>
+  <script type="module" src="../student-js/home.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("../service-worker.js");
+    }
+  </script>
+
+</body>
+</html>

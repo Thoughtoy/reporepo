@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+
+  <link rel="stylesheet" href="../student-css/onboarding.css">
+
+  <title>LeafLET Onboarding</title>
+</head>
+
+<body>
+
+  <main class="onboarding-screen">
+    <section class="slide-content">
+      <h1 id="slideTitle">Study Anytime,<br>Anywhere</h1>
+
+      <p id="slideSubtitle">
+        Access your reviewer materials even without internet connection.
+      </p>
+
+      <div class="image-wrap">
+        <img id="slideImage" src="../assets/images/onboarding-1.png" alt="Onboarding illustration">
+      </div>
+    </section>
+
+    <section class="slide-bottom">
+      <div class="dots">
+        <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="dot" data-index="2" aria-label="Slide 3"></button>
+      </div>
+
+      <button id="nextSlideBtn" class="next-btn" type="button">Next</button>
+    </section>
+  </main>
+
+  <script src="../student-js/onboarding.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("../service-worker.js");
+    }
+  </script>
+
+</body>
+</html>

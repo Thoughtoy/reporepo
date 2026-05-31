@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+  <link rel="stylesheet" href="../student-css/flashcards.css">
+  <link rel="stylesheet" href="../student-components/mobile-nav.css">
+  <title>LeafLET — Flashcards</title>
+</head>
+<body>
+<main class="flashcard-shell">
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <button class="icon-btn" id="backBtn" type="button">‹</button>
+    <div class="top-bar-title">
+      <h1>Flashcards</h1>
+      <p>Study reviewer terms Quizlet-style</p>
+    </div>
+    <div class="top-bar-actions">
+      <button class="icon-btn" id="csvBtn" type="button" title="Import CSV">CSV</button>
+      <button class="icon-btn" id="openImportBtn" type="button" title="Import DOCX or paste text">⬆</button>
+      <button class="icon-btn accent" id="openAddBtn" type="button">+</button>
+    </div>
+  </header>
+
+  <input type="file" id="csvInput" accept=".csv,.txt" class="hidden">
+
+  <!-- Study All Banner -->
+  <div class="study-all-bar">
+    <span>Study everything at once?</span>
+    <button id="studyAllBtn" type="button">Study All →</button>
+  </div>
+
+  <!-- VIEW 1: Category Grid -->
+  <section id="categoryGrid" class="category-grid">
+    <div class="loading-hint">Loading reviewers…</div>
+  </section>
+
+  <!-- VIEW 2: Topic List -->
+  <section id="topicView" class="topic-view hidden">
+    <div class="section-header">
+      <button class="back-row-btn" id="topicBackBtn">‹ Back</button>
+      <h2 id="topicTitle">Category</h2>
+    </div>
+    <div id="topicList" class="topic-list"></div>
+  </section>
+
+  <!-- VIEW 3: Study -->
+  <section id="studyView" class="study-view hidden">
+    <div class="section-header">
+      <button class="back-row-btn" id="studyBackBtn">‹ Back</button>
+      <h2 id="studyTitle">Studying</h2>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+    <p class="counter" id="cardCounter">0 / 0</p>
+
+    <button class="flashcard" id="flashcard" type="button">
+      <div class="flashcard-inner">
+        <div class="flashcard-face front">
+          <span class="face-label">TERM</span>
+          <h2 id="cardTerm">—</h2>
+        </div>
+        <div class="flashcard-face back">
+          <span class="face-label">DEFINITION</span>
+          <p id="cardDefinition">—</p>
+        </div>
+      </div>
+    </button>
+
+    <p class="tap-hint">Tap to flip · Swipe to navigate</p>
+
+    <div class="controls">
+      <button id="prevBtn" class="ctrl-btn">← Prev</button>
+      <button id="shuffleBtn" class="ctrl-btn accent">Shuffle</button>
+      <button id="nextBtn" class="ctrl-btn">Next →</button>
+    </div>
+  </section>
+
+  <div id="mobile-nav-container"></div>
+</main>
+
+<!-- ── Add Manual Flashcard Modal ── -->
+<div class="modal hidden" id="addModal">
+  <form class="modal-card" id="addFlashcardForm" novalidate>
+    <div class="modal-header">
+      <h2>Add Flashcard</h2>
+      <button type="button" class="modal-close" id="closeAddBtn">✕</button>
+    </div>
+    <label class="field-label">Category</label>
+    <select id="manualCategory" required><option value="">Select category…</option></select>
+    <label class="field-label">Topic</label>
+    <input id="manualTopic" type="text" placeholder="e.g. English" required>
+    <label class="field-label">Term / Question</label>
+    <input id="manualTerm" type="text" placeholder="Type the term" required>
+    <label class="field-label">Definition / Answer</label>
+    <textarea id="manualDefinition" placeholder="Type the definition" required></textarea>
+    <div class="modal-actions">
+      <button type="button" id="closeAddBtn2" class="btn-cancel">Cancel</button>
+      <button type="submit" class="btn-save">Save Card</button>
+    </div>
+  </form>
+</div>
+
+<!-- ── Import Modal (DOCX + AI) ── -->
+<div class="modal hidden" id="importModal">
+  <div class="modal-card import-modal-card">
+
+    <div class="modal-header">
+      <h2>Import Flashcards</h2>
+      <button type="button" class="modal-close" id="closeImportBtn">✕</button>
+    </div>
+
+    <!-- Category + Topic -->
+    <label class="field-label">Category</label>
+    <select id="importCategory"><option value="">Select category…</option></select>
+    <label class="field-label">Topic</label>
+    <input id="importTopic" type="text" placeholder="e.g. Child Development">
+
+    <!-- Tabs -->
+    <div class="import-tabs">
+      <button type="button" class="import-tab tab-active" id="tabDocx">📄 Upload DOCX</button>
+      <button type="button" class="import-tab" id="tabPaste">📋 Paste Text</button>
+    </div>
+
+    <!-- DOCX Panel -->
+    <div id="docxPanel">
+      <div class="dropzone" id="docxDropzone">
+        <p class="dz-icon">📄</p>
+        <p class="dz-text">Tap to upload or drag a <strong>.docx</strong> file</p>
+        <p class="dz-hint">Word documents only</p>
+      </div>
+      <input type="file" id="docxInput" accept=".docx" class="hidden">
+    </div>
+
+    <!-- Paste Panel -->
+    <div id="pastePanelEl" class="hidden">
+      <textarea id="pasteText" class="paste-textarea"
+        placeholder="Paste your notes, reviewer, or any text here. AI will extract flashcard pairs from it."></textarea>
+    </div>
+
+    <!-- Generate -->
+    <button type="button" id="generateBtn" class="btn-generate">
+      ✨ Generate Flashcards
+    </button>
+
+    <!-- Status -->
+    <div class="import-status-row">
+      <span id="importSpinner" class="spinner hidden"></span>
+      <span id="importStatus" class="import-status-text"></span>
+    </div>
+
+    <!-- Preview -->
+    <div id="previewSection" class="hidden">
+      <p class="preview-label">Review generated cards — edit or remove before saving:</p>
+      <div id="previewList" class="preview-list"></div>
+      <button type="button" id="saveImportBtn" class="btn-save" style="width:100%;margin-top:12px;">
+        💾 Save All Cards
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src="../student-components/mobile-nav.js"></script>
+<script type="module" src="../student-js/flashcards.js"></script>
+</body>
+</html>

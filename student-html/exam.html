@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LeafLET — Exam Simulation</title>
+
+  <link rel="stylesheet" href="../student-css/exam-simulation.css" />
+  <link rel="stylesheet" href="../student-components/mobile-nav.css" />
+</head>
+
+<body class="exam-page">
+
+  <div class="phone">
+
+    <div class="exam-scroll">
+
+      <!-- TOP BAR -->
+      <header class="top-bar">
+
+        <div class="brand">
+          <img src="../assets/images/LOGO.png" alt="LeafLET Logo">
+
+          <div>
+            <h1>LeafLET</h1>
+            <span>LET REVIEWER</span>
+          </div>
+        </div>
+
+        <button class="profile-btn" id="profileBtn">
+          <span id="profileInitial">?</span>
+        </button>
+
+      </header>
+
+      <!-- TITLE -->
+      <div class="title-row">
+
+        <button class="back-btn" id="backBtn">
+          ‹
+        </button>
+
+        <div class="title-block">
+          <h2>Exam Simulation</h2>
+          <p class="subtitle-text" id="examSubtitle">
+            LET Mock Examination
+          </p>
+        </div>
+
+      </div>
+
+      <!-- TIMER -->
+      <div class="timer-pill">
+        <span class="timer-value" id="timer">
+          02:00:00
+        </span>
+      </div>
+
+      <!-- PROGRESS -->
+      <div class="progress-header">
+
+        <span class="q-count" id="questionCount">
+          Question 1/10
+        </span>
+
+        <span class="pct-value" id="progressPercent">
+          10%
+        </span>
+
+      </div>
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+
+      <!-- CATEGORY -->
+      <div class="category-chip">
+        <span class="category-label" id="categoryLabel">
+          General Education
+        </span>
+      </div>
+
+      <!-- QUESTION -->
+      <section class="question-panel">
+
+        <p class="question-text" id="questionText">
+          Loading question...
+        </p>
+
+      </section>
+
+      <!-- OPTIONS -->
+      <div class="options" id="optionsContainer">
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="row-actions">
+
+        <button class="btn-outline" id="prevBtn">
+          Previous
+        </button>
+
+        <button class="btn-solid" id="nextBtn">
+          Next
+        </button>
+
+      </div>
+
+      <!-- LINKS -->
+      <div class="links-row">
+
+        <button class="link-flag">
+          Flag this Question
+        </button>
+
+        <button class="link-exit" id="exitBtn">
+          Exit Exam
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div id="mobileNavContainer"></div>
+
+  </div>
+
+  <script type="module" src="../student-js/exam-simulation.js"></script>
+
+</body>
+</html>

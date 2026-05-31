@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LeafLET — Profile</title>
+
+  <link rel="stylesheet" href="../sidebar/sidebar.css" />
+  <link rel="stylesheet" href="../header/header.css" />
+  <link rel="stylesheet" href="../admin-css/profile.css" />
+</head>
+
+<body>
+
+  <div id="sidebar-container"></div>
+
+  <main class="main-content">
+
+    <div id="header-container"></div>
+
+    <section class="profile-page">
+
+      <aside class="profile-side">
+        <div class="profile-card">
+          <div class="profile-avatar-large" id="profileAvatarLarge">?</div>
+          <h2 id="sideProfileName">Loading...</h2>
+          <p id="sideProfileRole">Admin</p>
+        </div>
+
+        <div class="profile-tabs">
+          <button type="button" class="profile-tab active" data-tab="info">Personal Information</button>
+          <button type="button" class="profile-tab" data-tab="password">Change Password</button>
+        </div>
+      </aside>
+
+      <section class="profile-content">
+
+        <form class="profile-form active" id="infoForm">
+          <h3>Personal Information</h3>
+
+          <div class="form-row">
+            <label class="field">
+              <span>First Name</span>
+              <input type="text" id="firstNameInput">
+            </label>
+
+            <label class="field">
+              <span>Middle Name</span>
+              <input type="text" id="middleNameInput">
+            </label>
+
+            <label class="field">
+              <span>Last Name</span>
+              <input type="text" id="lastNameInput">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="emailInput" disabled>
+          </label>
+
+          <div class="form-row">
+            <label class="field">
+              <span>Phone Number</span>
+              <input type="tel" id="phoneInput">
+            </label>
+
+            <label class="field">
+              <span>Date of Birth</span>
+              <input type="date" id="dobInput">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Address</span>
+            <input type="text" id="addressInput">
+          </label>
+
+          <div class="form-row">
+            <label class="field">
+              <span>Postal Code</span>
+              <input type="text" id="postalInput">
+            </label>
+
+            <label class="field">
+              <span>Country</span>
+              <input type="text" id="countryInput">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Gender</span>
+            <select id="genderInput">
+              <option value="">Prefer not to say</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </label>
+
+          <div class="form-actions">
+            <button type="button" class="secondary-btn" id="discardInfoBtn">Discard Changes</button>
+            <button type="submit" class="primary-btn">Save Changes</button>
+          </div>
+        </form>
+
+        <form class="profile-form" id="passwordForm">
+          <h3>Change Password</h3>
+
+          <label class="field">
+            <span>Current Password</span>
+            <input type="password" id="currentPasswordInput">
+          </label>
+
+          <label class="field">
+            <span>New Password</span>
+            <input type="password" id="newPasswordInput">
+          </label>
+
+          <div class="password-rules">
+            <p>Your password must contain:</p>
+            <span>• At least 8 characters</span>
+            <span>• One uppercase letter</span>
+            <span>• One number</span>
+            <span>• One special character</span>
+          </div>
+
+          <label class="field">
+            <span>Confirm New Password</span>
+            <input type="password" id="confirmPasswordInput">
+          </label>
+
+          <div class="form-actions">
+            <button type="button" class="secondary-btn" id="clearPasswordBtn">Clear</button>
+            <button type="submit" class="primary-btn">Update Password</button>
+          </div>
+        </form>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="../sidebar/sidebar.js"></script>
+  <script type="module" src="../header/header.js"></script>
+  <script type="module" src="../admin-js/profile.js"></script>
+
+</body>
+</html>

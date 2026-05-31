@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+
+  <link rel="stylesheet" href="../student-css/student-auth.css">
+
+  <title>LeafLET Student Login</title>
+</head>
+
+<body>
+
+  <main class="auth-screen">
+    <section class="auth-card">
+
+      <img src="../assets/images/LOGO.png" class="logo" alt="LeafLET Logo">
+
+      <h1>Welcome back to LeafLET!</h1>
+      <p class="subtitle">Continue your LET review journey.</p>
+
+      <form id="loginForm">
+        <input type="email" id="email" class="input-box" placeholder="Enter email address" required>
+
+        <div class="password-wrap">
+          <input type="password" id="password" class="input-box" placeholder="Enter password" required>
+          <button type="button" class="toggle-password" data-target="password">Show</button>
+        </div>
+
+        <p class="forgot">
+          Forgot Password?
+          <a href="./reset-password.html">Click Here</a>
+        </p>
+
+        <button type="submit" id="loginBtn" class="primary-btn">Sign In</button>
+      </form>
+
+      <p class="bottom-text">
+        Don’t have an account?
+        <a href="./student-register.html">Sign up now</a>
+      </p>
+
+    </section>
+  </main>
+
+  <script type="module" src="../student-js/student-login.js"></script>
+
+</body>
+</html>

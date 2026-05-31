@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../admin-css/admin-login.css">
+  <link rel="stylesheet" href="../flash/flash.css">
+  <title>Admin Login</title>
+</head>
+<body>
+
+  <main class="canvas">
+        <div class="login-card">
+            <div class="logo">
+                <img src="../assets/images/LOGO.png" alt="LeafLET Logo">
+            </div>
+
+            <h1>Welcome Back to LeafLET!</h1>
+            <p class="subtitle">Empower Instructors. Guide Learners</p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="input-group">
+                <label>Password:</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" required>
+                    <img src="images/hide.png" alt="Toggle Visibility" class="toggle-password">
+                </div>
+                </div>
+
+                <p class="forgot-text">Forgot Password? <a href="#">Click Here</a></p>
+
+                <button type="submit" id="loginBtn" class="btn-signin">Sign In</button>
+                <button type="button" class="btn-register">Register</button>
+            </form>
+        </div>
+    </main>
+
+
+  <script type="module" src="../admin-js/login.js"></script>
+
+</body>
+</html>

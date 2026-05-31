@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LeafLET — Question Management</title>
+
+  <link rel="stylesheet" href="../sidebar/sidebar.css" />
+  <link rel="stylesheet" href="../header/header.css" />
+  <link rel="stylesheet" href="../admin-css/questions.css" />
+</head>
+
+<body>
+
+  <div id="sidebar-container"></div>
+
+  <main class="main-content">
+
+    <div id="header-container"></div>
+
+    <div class="qm-page">
+
+      <aside class="question-panel">
+        <div class="question-panel-header">
+          <span id="questionCount">QUESTION (0)</span>
+        </div>
+
+        <div id="questionList" class="question-list">
+          <div class="empty-question">Loading questions...</div>
+        </div>
+      </aside>
+
+      <section class="editor-panel">
+
+        <div class="top-settings">
+
+          <div class="field-group">
+            <label for="categorySelect">Category</label>
+            <select id="categorySelect"></select>
+          </div>
+
+          <div class="field-group topic-group">
+            <label for="topicSelect">Topic</label>
+
+            <div class="topic-row">
+              <select id="topicSelect"></select>
+              <button type="button" class="add-question-btn green-add" id="addQuestionBtn">+</button>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <button type="button" class="preview-btn" id="previewBtn">Preview</button>
+            <button type="button" class="publish-btn" id="publishBtn">Publish</button>
+          </div>
+
+        </div>
+
+        <div class="question-editor">
+
+          <div class="editor-toolbar">
+
+            <select class="type-select" id="typeSelect">
+              <option value="Multiple Choice">Multiple Choice</option>
+              <option value="Identification">Identification</option>
+              <option value="Enumeration">Enumeration</option>
+            </select>
+
+            <div class="right-tools">
+              <span>Required</span>
+
+              <label class="switch">
+                <input type="checkbox" id="requiredToggle" checked />
+                <span></span>
+              </label>
+
+              <button type="button" class="more-btn" id="moreBtn">•••</button>
+            </div>
+
+          </div>
+
+          <div class="question-box">
+
+            <div class="question-label" id="questionLabel">Question</div>
+
+            <div class="question-input-row">
+              <textarea id="questionTextarea" placeholder="Type your question here..."></textarea>
+              <button type="button" class="image-btn" id="imageBtn">▧</button>
+            </div>
+
+          </div>
+
+          <div class="choice-options">
+            <span id="answerSectionLabel">Choices</span>
+            <span class="divider"></span>
+            <span>Multiple Answer</span>
+
+            <label class="mini-switch">
+              <input type="checkbox" id="multipleAnswer" />
+              <span></span>
+            </label>
+          </div>
+
+          <div class="answers" id="answersContainer"></div>
+
+          <button type="button" class="add-answer-btn" id="addAnswerBtn">＋ Add Answer</button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <div class="preview-modal" id="previewModal">
+    <div class="preview-card">
+      <div class="preview-header">
+        <h2>Question Preview</h2>
+        <button type="button" id="closePreviewBtn">×</button>
+      </div>
+
+      <div class="student-preview">
+        <p class="preview-category" id="previewCategory"></p>
+        <h3 id="previewQuestion"></h3>
+
+        <div id="previewChoices" class="preview-choices"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../sidebar/sidebar.js"></script>
+  <script type="module" src="../header/header.js"></script>
+  <script type="module" src="../admin-js/questions.js"></script>
+
+</body>
+</html>

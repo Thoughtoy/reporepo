@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+
+  <link rel="stylesheet" href="../student-css/learn.css">
+  <link rel="stylesheet" href="../student-components/mobile-nav.css">
+
+  <title>LeafLET — Read & Learn</title>
+</head>
+
+<body>
+  <main class="learn-shell">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="brand">
+        <img
+          src="../assets/images/LOGO.png"
+          alt="LeafLET Logo"
+        >
+        <div>
+          <h1>LeafLET</h1>
+          <span>LET REVIEWER</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <!-- Points badge: shows points from game, clickable to see game page -->
+        <a class="points-badge" id="pointsBadge" href="./game.html" title="Your points — earn more in the Game Arena">
+          0 ⚡
+        </a>
+
+        <button
+          class="profile-btn"
+          id="profileBtn"
+          type="button"
+        >
+          <span id="profileInitial">?</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="page-header">
+      <button class="back-btn" id="backBtn" type="button">‹</button>
+      <div class="page-title">Read & Learn</div>
+    </div>
+
+    <!-- CATEGORY TABS -->
+    <section class="category-tabs">
+      <button class="tab active" type="button" data-category="General Education">General Educ.</button>
+      <button class="tab" type="button" data-category="Professional Education">Professional Educ.</button>
+      <button class="tab" type="button" data-category="Majors">Majors</button>
+    </section>
+
+    <!-- HERO -->
+    <section class="hero-card">
+      <p class="eyebrow">Current Category</p>
+      <h2 id="categoryTitle">General Education</h2>
+      <p id="categorySubtitle">Complete each module in order to unlock the next.</p>
+      <p class="unlock-tip">💡 Locked modules can be opened by spending <strong>50 pts</strong> from your Game Arena earnings.</p>
+    </section>
+
+    <!-- BUILT-IN MODULES -->
+    <section class="module-section">
+      <h3 class="section-title">Built-in Modules</h3>
+      <div id="builtinModules" class="module-list">
+        <p class="loading-text">Loading modules...</p>
+      </div>
+    </section>
+
+    <!-- CLASS FILES -->
+    <section class="module-section">
+      <div class="section-header-row">
+        <h3 class="section-title">My Class Files</h3>
+        <button class="join-class-btn" id="joinClassBtn" type="button">+ Join Class</button>
+      </div>
+
+      <div id="classModule" class="module-list">
+        <p class="loading-text">Checking enrolled class...</p>
+      </div>
+    </section>
+
+    <div id="mobile-nav-container"></div>
+
+  </main>
+
+  <!-- ── JOIN CLASS MODAL ─────────────────────────────────────── -->
+  <div class="modal-overlay hidden" id="joinClassModal">
+    <div class="modal-box">
+      <h2>Join a Class</h2>
+      <p>Paste the class code given by your instructor.</p>
+
+      <input
+        type="text"
+        id="classCodeInput"
+        placeholder="Example: GEN-1234"
+        autocomplete="off"
+      />
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="cancelJoinBtn">Cancel</button>
+        <button type="button" class="btn-confirm" id="confirmJoinBtn">Join Class</button>
+      </div>
+
+      <p class="modal-message" id="joinMessage"></p>
+    </div>
+  </div>
+
+  <!-- ── UNLOCK WITH POINTS MODAL ───────────────────────────── -->
+  <div class="modal-overlay hidden" id="unlockModal">
+    <div class="modal-box">
+      <div class="unlock-icon">🔓</div>
+      <h2>Unlock Module</h2>
+      <p class="unlock-module-name" id="unlockModuleTitle">Module Title</p>
+
+      <div class="unlock-cost-row">
+        <span>Cost</span>
+        <strong id="unlockCostText">50 pts</strong>
+      </div>
+      <div class="unlock-cost-row">
+        <span>Your points</span>
+        <strong id="unlockCurrentPoints">0 pts</strong>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="cancelUnlockBtn">Cancel</button>
+        <button type="button" class="btn-confirm" id="confirmUnlockBtn">Spend 50 pts to Unlock</button>
+      </div>
+
+      <p class="modal-message" id="unlockMessage"></p>
+    </div>
+  </div>
+
+  <!-- ── READER MODAL ────────────────────────────────────────── -->
+  <div class="reader-modal hidden" id="readerModal">
+    <div class="reader-shell">
+
+      <header class="reader-top">
+        <button class="reader-back" id="closeReaderBtn" type="button">‹</button>
+        <div>
+          <p id="readerCategory">Category</p>
+          <h2 id="readerTitle">Module Title</h2>
+        </div>
+      </header>
+
+      <article class="reader-body" id="readerBody"></article>
+
+      <div class="mark-done-bar">
+        <button class="mark-done-btn" id="markDoneBtn" type="button">Mark as Done</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="../student-components/mobile-nav.js"></script>
+  <script type="module" src="../student-js/learn.js"></script>
+</body>
+</html>

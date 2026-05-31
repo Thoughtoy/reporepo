@@ -1,0 +1,57 @@
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(66px + env(safe-area-inset-bottom));
+  padding: 0 18px env(safe-area-inset-bottom);
+  background: #264b0d;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+}
+
+.nav-item,
+.game-btn {
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.nav-item {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.nav-svg,
+.game-svg {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+  stroke-width: 2.4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.game-btn {
+  width: 58px;
+  height: 58px;
+  margin-top: -26px;
+  border-radius: 50%;
+  background: #497b1d;
+  border: 4px solid #f5f6ee;
+}
+
+.game-svg {
+  width: 30px;
+  height: 30px;
+}

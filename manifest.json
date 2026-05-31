@@ -1,0 +1,22 @@
+{
+  "name": "LeafLET Reviewer",
+  "short_name": "LeafLET",
+  "description": "Offline LET reviewer app for students.",
+  "start_url": "./student-html/splash.html",
+  "display": "standalone",
+  "background_color": "#fcfbf2",
+  "theme_color": "#143d02",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./assets/images/LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

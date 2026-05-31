@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>LeafLET — My Profile</title>
+
+  <link
+    rel="stylesheet"
+    href="../student-css/user-profile.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../student-components/mobile-nav.css"
+  />
+
+</head>
+
+<body>
+
+  <div class="phone">
+
+    <div class="content">
+
+      <!-- TOP BAR -->
+
+      <div class="top-bar">
+
+        <div class="brand">
+
+          <img
+            src="../assets/images/LOGO.png"
+            alt="LeafLET Logo"
+          >
+
+          <div>
+            <h1>LeafLET</h1>
+            <span>LET REVIEWER</span>
+          </div>
+
+        </div>
+
+        <button
+          class="profile-btn"
+          id="profileBtn"
+        >
+          <span id="profileInitial">?</span>
+        </button>
+
+      </div>
+
+      <!-- PAGE HEADER -->
+
+      <div class="page-header">
+
+        <div
+          class="back-btn"
+          onclick="goBack()"
+        >
+          ‹
+        </div>
+
+        <div class="page-title">
+          My Profile
+        </div>
+
+      </div>
+
+      <!-- PROFILE -->
+
+      <div class="profile-wrapper">
+
+        <div class="profile-container">
+
+          <img
+            src=""
+            class="profile-image"
+            id="profilePreview"
+          >
+
+          <div
+            class="add-btn"
+            onclick="uploadPhoto()"
+          >
+            +
+          </div>
+
+          <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+            hidden
+          >
+
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- BASIC DETAILS -->
+
+      <div class="section">
+
+        <div class="section-title">
+          Basic Detail
+        </div>
+
+        <div class="input-group">
+
+          <label>Full Name</label>
+
+          <input
+            id="fullNameInput"
+            type="text"
+            class="input-field"
+            placeholder="Enter full name"
+          >
+
+        </div>
+
+        <div class="input-group">
+
+          <label>Date of Birth</label>
+
+          <input
+            id="dobInput"
+            type="text"
+            class="input-field"
+            placeholder="MM/DD/YYYY"
+          >
+
+        </div>
+
+        <div class="input-group">
+
+          <label>Gender</label>
+
+          <div class="gender-row">
+
+            <div
+              class="gender-card"
+              data-gender="male"
+              onclick="selectGender(this)"
+            >
+
+              <div class="radio">
+                <div class="radio-fill"></div>
+              </div>
+
+              <span>Male</span>
+
+            </div>
+
+            <div
+              class="gender-card"
+              data-gender="female"
+              onclick="selectGender(this)"
+            >
+
+              <div class="radio">
+                <div class="radio-fill"></div>
+              </div>
+
+              <span>Female</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CONTACT -->
+
+      <div class="section">
+
+        <div class="section-title">
+          Contact Detail
+        </div>
+
+        <div class="input-group">
+
+          <label>Mobile Number</label>
+
+          <input
+            id="mobileInput"
+            type="text"
+            class="input-field"
+            placeholder="Enter mobile number"
+          >
+
+        </div>
+
+        <div class="input-group">
+
+          <label>Email</label>
+
+          <input
+            id="emailInput"
+            type="email"
+            class="input-field"
+            readonly
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BUTTONS -->
+
+    <div class="bottom-buttons">
+
+      <button
+        class="btn btn-outline"
+        onclick="loadProfile()"
+      >
+        Discard
+      </button>
+
+      <button
+        class="btn btn-primary"
+        id="saveBtn"
+        onclick="saveProfile()"
+      >
+        Save Changes
+      </button>
+
+    </div>
+
+    <!-- MOBILE NAV -->
+
+    <div id="mobile-nav-container"></div>
+
+  </div>
+
+  <script
+    type="module"
+    src="../student-components/mobile-nav.js"
+  ></script>
+
+  <script
+    type="module"
+    src="../student-js/student-profile.js"
+  ></script>
+
+</body>
+
+</html>

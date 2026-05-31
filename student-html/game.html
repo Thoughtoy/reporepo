@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+
+  <link rel="stylesheet" href="../student-css/game.css">
+  <link rel="stylesheet" href="../student-components/mobile-nav.css">
+
+  <title>LeafLET Game</title>
+</head>
+
+<body>
+
+<main class="app-shell">
+
+  <!-- TOP BAR -->
+
+  <section class="top-bar">
+
+    <div class="brand">
+      <img src="../assets/images/LOGO.png" alt="LeafLET Logo">
+
+      <div>
+        <h1>LeafLET</h1>
+        <span>LET REVIEWER</span>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <span id="pointsText">0 ⚡</span>
+
+      <button class="profile-btn" id="profileBtn" type="button">
+        <span id="profileInitial">?</span>
+      </button>
+    </div>
+
+  </section>
+
+  <div class="page-header">
+    <button class="back-btn" id="backBtn" type="button">‹</button>
+  </div>
+
+  <!-- PROFILE SCREEN -->
+
+  <section id="profileScreen">
+
+    <div class="center-title">
+      <h2>Achievements</h2>
+
+      <button id="editProfileBtn" class="mini-btn" type="button">
+        Edit Profile ✎
+      </button>
+    </div>
+
+    <section class="level-card">
+
+      <div class="medal-icon">🏅</div>
+
+      <div>
+
+        <h3>Achievement Level</h3>
+
+        <div class="level-grid">
+
+          <span>Current Level</span>
+          <strong id="gameLevelText">Beginner</strong>
+
+          <span>Latest Badge</span>
+          <strong id="latestBadgeText">New Challenger</strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="points-strip">
+      <span>✩ Points you have</span>
+      <strong id="pointsPillText">0pts</strong>
+    </section>
+
+    <section class="achievements-card">
+
+      <h3>Achievements</h3>
+
+      <div class="badge-grid" id="achievementGrid"></div>
+
+    </section>
+
+    <section class="legend-card" id="badgeList"></section>
+
+    <button
+      id="startGameBtn"
+      class="primary-btn"
+      type="button"
+    >
+      START THE GAME
+    </button>
+
+  </section>
+
+  <!-- GAME ARENA -->
+
+  <section id="arenaScreen" class="hidden">
+
+    <div class="center-title">
+      <h2 id="arenaTitle">LeafLET Arena</h2>
+      <p id="arenaSubtitle">General Education - Round 1</p>
+    </div>
+
+    <div class="arena-progress">
+
+      <div class="timer-pill">
+        ⏱ <span id="timerText">00:30</span>
+      </div>
+
+      <div class="progress-line">
+        <div id="progressFill"></div>
+      </div>
+
+      <span id="roundCount">Q1/10</span>
+
+    </div>
+
+    <div class="combo-bar">
+      <span>🔥 <strong id="comboText">1x Combo!</strong></span>
+      <b id="comboBonusText">+10 XP Bonus</b>
+    </div>
+
+    <div class="category-chip" id="categoryChip">
+      General Education
+    </div>
+
+    <section class="question-card">
+      <p id="arenaQuestionText">Loading question...</p>
+    </section>
+
+    <div class="answers-list" id="arenaAnswersList"></div>
+
+    <!-- XP PANEL -->
+
+    <section id="xpPanel" class="feedback-card hidden">
+
+      <div>
+
+        <strong id="xpPanelTitle">
+          Correct!
+        </strong>
+
+        <span id="xpPanelSubtitle">
+          Combo bonus applied!
+        </span>
+
+      </div>
+
+      <b id="xpValue">+10XP</b>
+
+    </section>
+
+    <section class="tip-card">
+
+      <strong>Did you know?</strong>
+
+      <p id="factText">
+        The XP bonuses you accumulate can be used to unlock new modules and track your progress.
+      </p>
+
+    </section>
+
+    <button
+      id="nextRoundBtn"
+      class="primary-btn arena-btn hidden"
+      type="button"
+    >
+      Next Round
+    </button>
+
+  </section>
+
+  <!-- RESULT SCREEN -->
+
+  <section id="gameResultScreen" class="hidden">
+
+    <div class="result-card">
+
+      <h2>Game Finished!</h2>
+
+      <div class="big-xp" id="gameFinalXP">
+        +0XP
+      </div>
+
+      <p id="gameFinalDetails">
+        You earned points from this round.
+      </p>
+
+      <button
+        id="playAgainBtn"
+        class="primary-btn"
+        type="button"
+      >
+        Play Again
+      </button>
+
+      <button
+        id="backProfileBtn"
+        class="outline-btn"
+        type="button"
+      >
+        Back to Profile
+      </button>
+
+    </div>
+
+  </section>
+
+  <div id="mobile-nav-container"></div>
+
+</main>
+
+<script type="module" src="../student-components/mobile-nav.js"></script>
+<script type="module" src="../student-js/game.js"></script>
+
+</body>
+</html>

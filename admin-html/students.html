@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LeafLET — Student Management</title>
+
+  <link rel="stylesheet" href="../sidebar/sidebar.css" />
+  <link rel="stylesheet" href="../header/header.css" />
+  <link rel="stylesheet" href="../admin-css/students.css" />
+</head>
+
+<body>
+
+  <div id="sidebar-container"></div>
+
+  <main class="main-content">
+
+    <div id="header-container"></div>
+
+    <section class="student-page">
+
+      <div class="page-toolbar">
+        <div>
+          <p class="eyebrow">LeafLET Admin</p>
+          <h2>Student Management</h2>
+        </div>
+
+        <button type="button" class="primary-btn" id="addStudentBtn">
+          + Add Student
+        </button>
+      </div>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <p>Total Students</p>
+          <h3 id="totalStudents">0</h3>
+        </article>
+
+        <article class="summary-card">
+          <p>Active Students</p>
+          <h3 id="activeStudents">0</h3>
+        </article>
+
+        <article class="summary-card">
+          <p>Average Score</p>
+          <h3 id="averageScore">—</h3>
+        </article>
+
+        <article class="summary-card">
+          <p>Quiz Attempts</p>
+          <h3 id="totalAttempts">0</h3>
+        </article>
+      </div>
+
+      <div class="tab-row">
+        <button type="button" class="tab-btn active" data-tab="records">Student Records</button>
+        <button type="button" class="tab-btn" data-tab="performance">Performance</button>
+      </div>
+
+      <section class="tab-panel active" id="recordsTab">
+
+        <div class="controls-row">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by name or email...">
+
+          <select id="statusFilter">
+            <option value="all">All Status</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+
+          <select id="classFilter">
+            <option value="all">All Classes</option>
+          </select>
+
+          <button type="button" class="secondary-btn" id="resetFiltersBtn">Reset</button>
+        </div>
+
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Class</th>
+                <th>Status</th>
+                <th>Joined Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="studentTableBody">
+              <tr>
+                <td colspan="6" class="empty-row">Loading students...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <section class="tab-panel" id="performanceTab">
+
+        <div class="controls-row">
+          <select id="rankingFilter">
+            <option value="averageScore">Average Score</option>
+            <option value="attempts">Quiz Attempts</option>
+            <option value="streak">Study Streak</option>
+          </select>
+
+          <select id="orderFilter">
+            <option value="desc">Highest First</option>
+            <option value="asc">Lowest First</option>
+          </select>
+
+          <button type="button" class="secondary-btn" id="refreshPerformanceBtn">Refresh</button>
+        </div>
+
+        <div class="performance-layout">
+
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Student</th>
+                  <th>Class</th>
+                  <th>Attempts</th>
+                  <th>Average Score</th>
+                  <th>Streak</th>
+                </tr>
+              </thead>
+
+              <tbody id="performanceTableBody">
+                <tr>
+                  <td colspan="6" class="empty-row">Loading performance...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside class="insight-card">
+            <h3>Performance Notes</h3>
+            <p id="performanceNote">
+              Student performance will appear once quiz attempts are recorded.
+            </p>
+          </aside>
+
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <div class="modal" id="studentModal">
+    <div class="modal-card">
+      <h3 id="studentModalTitle">Add Student</h3>
+
+      <label class="field">
+        <span>Full Name</span>
+        <input type="text" id="studentNameInput" placeholder="Example: Juan Dela Cruz">
+      </label>
+
+      <label class="field">
+        <span>Email</span>
+        <input type="email" id="studentEmailInput" placeholder="student@email.com">
+      </label>
+
+      <label class="field">
+        <span>Assigned Class</span>
+        <select id="studentClassInput">
+          <option value="">No class assigned</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Status</span>
+        <select id="studentStatusInput">
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </label>
+
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="cancelStudentBtn">Cancel</button>
+        <button type="button" class="primary-btn" id="saveStudentBtn">Save Student</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../sidebar/sidebar.js"></script>
+  <script type="module" src="../header/header.js"></script>
+  <script type="module" src="../admin-js/students.js"></script>
+
+</body>
+</html>

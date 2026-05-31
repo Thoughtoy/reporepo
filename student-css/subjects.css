@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #f2f5ec;
+  --surface: #ffffff;
+  --green-dark: #143d02;
+  --green: #3d7a18;
+  --green-mid: #4e8d29;
+  --green-pale: #eef6e4;
+  --muted: #7a8f6e;
+  --line: #d4e3c4;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --radius: 16px;
+  --shadow: 0 8px 28px rgba(20, 61, 2, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--bg);
+  font-family: var(--sans);
+  color: var(--green-dark);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.subjects-shell {
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 100px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--green-dark);
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.top-bar-title h1 {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.top-bar-title p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.subject-section {
+  margin-bottom: 26px;
+}
+
+.subject-section h2 {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+
+.subject-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+  color: var(--green-dark);
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.subject-card:active {
+  transform: scale(0.97);
+  opacity: 0.88;
+}
+
+.subject-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--green);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.subject-info {
+  min-width: 0;
+}
+
+.subject-info h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 3px;
+  color: var(--green-dark);
+}
+
+.subject-info p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+@media (min-width: 600px) {
+  .subjects-shell {
+    padding-top: 28px;
+  }
+}

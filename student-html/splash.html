@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+
+  <link rel="stylesheet" href="../student-css/splash.css">
+
+  <title>LeafLET Splash</title>
+</head>
+
+<body>
+
+  <main class="phone-splash">
+    <section class="center-wrap">
+      <img class="logo-mark" src="../assets/images/LOGO.png" alt="LeafLET logo">
+
+      <h1>LeafLET</h1>
+
+      <p class="tagline">Study Smart. Pass the LET.</p>
+    </section>
+
+    <a class="next-btn" href="./onboarding.html" aria-label="Continue">
+      <span>➜</span>
+    </a>
+  </main>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("../service-worker.js");
+    }
+  </script>
+
+</body>
+</html>

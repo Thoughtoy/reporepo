@@ -1,0 +1,221 @@
+.sidebar {
+  width: 90px;
+  height: 100vh;
+  background: #143d02;
+  padding: 28px 18px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.expanded {
+  width: 250px;
+  padding: 28px 10px;
+}
+
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.sidebar-logo img {
+  width: 72px;
+  height: auto;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-logo img {
+  width: 48px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-link {
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 12px;
+  color: #eef4cf;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sidebar-link.active {
+  background: #eef4cf;
+  color: #143d02;
+}
+
+.sidebar-link:hover {
+  background: rgba(238, 244, 207, 0.16);
+}
+
+.sidebar-link.active:hover {
+  background: #eef4cf;
+}
+
+.icon {
+  width: 22px;
+  min-width: 22px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.sidebar .label {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.sidebar.expanded .label {
+  opacity: 1;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.logout-btn {
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+
+  background: transparent;
+  color: #ffdddd;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 0 16px;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 90, 90, 0.14);
+  color: #ffffff;
+}
+
+.logout-btn .label {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.expanded .logout-btn .label {
+  opacity: 1;
+}
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 61, 2, 0.38);
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.confirm-box {
+  width: 100%;
+  max-width: 360px;
+  background: #fffefc;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  animation: confirmPop 0.2s ease;
+}
+
+.confirm-box h3 {
+  margin: 0 0 8px;
+  color: #143d02;
+  font-size: 18px;
+}
+
+.confirm-box p {
+  margin: 0;
+  color: #65745f;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.confirm-actions button {
+  flex: 1;
+  height: 40px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.confirm-cancel {
+  background: #f4f6ee;
+  color: #143d02;
+  border: 1px solid #d9e5d0;
+}
+
+.confirm-yes {
+  background: #497b1d;
+  color: #ffffff;
+  border: none;
+}
+
+.confirm-cancel:hover {
+  background: #e8eddf;
+}
+
+.confirm-yes:hover {
+  background: #3d631d;
+}
+
+@keyframes confirmPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

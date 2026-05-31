@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#143d02">
+
+  <link rel="stylesheet" href="../student-css/quiz.css">
+  <link rel="stylesheet" href="../student-components/mobile-nav.css">
+
+  <title>LeafLET Quiz</title>
+</head>
+
+<body>
+  <main class="app-shell">
+
+    <section class="top-bar">
+      <div class="brand">
+        <img src="../assets/images/LOGO.png" alt="LeafLET Logo">
+        <div>
+          <h1>LeafLET</h1>
+          <span>LET REVIEWER</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <span id="streakText">0 ⚡</span>
+        <button class="profile-btn" id="profileBtn" type="button">
+          <span id="profileInitial">?</span>
+        </button>
+      </div>
+    </section>
+
+    <button class="back-btn" id="backBtn" type="button">‹</button>
+
+    <section id="quizHome" class="quiz-home">
+      <div class="center-title">
+        <h2>Start the Quiz</h2>
+        <p>Pick your settings below</p>
+      </div>
+
+      <section class="section-block">
+        <h3>Choose Category</h3>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="settings-card">
+        <h3>Quiz Settings</h3>
+
+        <div class="setting-row">
+          <div>
+            <strong>No. of Questions</strong>
+            <span>Choose how many to answer</span>
+          </div>
+
+          <div class="pill-group" id="questionLimitGroup">
+            <button type="button" data-limit="10" class="pill active">10</button>
+            <button type="button" data-limit="20" class="pill">20</button>
+            <button type="button" data-limit="50" class="pill">50</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <strong>Difficulty</strong>
+            <span>Filter by level</span>
+          </div>
+
+          <div class="pill-group" id="difficultyGroup">
+            <button type="button" data-difficulty="Easy" class="pill">Easy</button>
+            <button type="button" data-difficulty="Medium" class="pill">Med.</button>
+            <button type="button" data-difficulty="All" class="pill active">All</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <strong>Timer</strong>
+            <span>30 seconds per question</span>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" id="timerToggle" checked>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <strong>Randomize</strong>
+            <span>Shuffle question order</span>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" id="randomToggle" checked>
+            <span></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="review-tip hidden" id="reviewTip">
+        <span></span>
+        <p id="reviewTipText"></p>
+      </section>
+
+      <section class="recent-section">
+        <h3>Recent Attempts</h3>
+        <div id="recentAttempts" class="recent-list"></div>
+      </section>
+
+      <button id="startQuizBtn" class="primary-btn" type="button">Start the Quiz</button>
+    </section>
+
+    <section id="quizScreen" class="quiz-screen hidden">
+      <div class="center-title">
+        <h2 id="activeCategoryTitle">General Education</h2>
+        <p id="activeCategorySubtitle">Questions are randomized on all subjects</p>
+      </div>
+
+      <div class="timer-chip hidden" id="timerChip">⏱ <span id="timerText">00:30</span></div>
+
+      <div class="progress-wrap">
+        <div class="progress-line">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span id="progressPercent">0%</span>
+      </div>
+
+      <div class="quiz-count" id="quizCount">0/0</div>
+
+      <div class="question-card">
+        <strong id="questionNumber">Question no. 1</strong>
+        <p id="questionText">Loading question...</p>
+      </div>
+
+      <div class="answers-list" id="answersList"></div>
+
+      <div class="quiz-bottom">
+        <button id="historyBtn" class="outline-btn" type="button">Quiz History</button>
+        <button id="nextBtn" class="primary-btn" type="button">Next</button>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="result-screen hidden">
+        <div class="result-header">
+            <h2>Quiz Results</h2>
+            <p id="resultSubtitle">General Education</p>
+        </div>
+
+        <section class="score-panel">
+            <h3>Your Score:</h3>
+            <div class="score-main">
+            <span id="finalScoreNumber">0</span><small id="finalTotal">/0</small>
+            </div>
+            <div class="passed-badge" id="resultStatus">Passed</div>
+        </section>
+
+        <section class="result-stats">
+            <div class="stat-box">
+            <strong id="finalTime">00:00</strong>
+            <span>Time Taken</span>
+            </div>
+
+            <div class="stat-box">
+            <strong id="finalAccuracy">0%</strong>
+            <span>Accuracy</span>
+            </div>
+        </section>
+
+        <section class="module-breakdown">
+            <h3>Module Breakdown</h3>
+            <div id="moduleBreakdownList"></div>
+        </section>
+
+        <section class="module-card high">
+            <strong>High-Scoring Modules</strong>
+            <ul id="highModules"></ul>
+        </section>
+
+        <section class="module-card low">
+            <strong>Needs More Practice</strong>
+            <ul id="lowModules"></ul>
+        </section>
+
+        <section class="result-message" id="resultMessage"></section>
+
+        <button id="retakeBtn" class="primary-btn result-action" type="button">Try Again</button>
+        <button id="backHomeBtn" class="text-btn" type="button">Back to Quiz Home</button>
+    </section>
+
+    <div id="mobile-nav-container"></div>
+  </main>
+
+  <script type="module" src="../student-components/mobile-nav.js"></script>
+  <script type="module" src="../student-js/quiz.js"></script>
+</body>
+</html>
